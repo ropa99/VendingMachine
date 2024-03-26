@@ -4,8 +4,8 @@ public interface VendingMachine {
 
     void addCurrency(double amount);
     int getBalanceC();
-    Product request(String id);
+    Product request(int id);
     int endSession();
-    String getDescription(String id);
+    String getDescription(int id);
     String[] getProducts();
 }
