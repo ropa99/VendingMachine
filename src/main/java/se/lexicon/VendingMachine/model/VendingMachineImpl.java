@@ -47,7 +47,7 @@ public class VendingMachineImpl implements VendingMachine{
 
         Product pr = findProduct(id);
 
-        return pr.getDescription(); //todo:remove
+        return pr.examine();
     }
 
     @Override
@@ -55,18 +55,21 @@ public class VendingMachineImpl implements VendingMachine{
         String[] strProducts = new String[products.length +1];
             for(int i =0; i < products.length;i++){
 
-                strProducts[i] = products[i].getDescription();
+                strProducts[i] = products[i].examine();
             }
         return strProducts;
     }
-    public void setProduct(Product pr){
+
+   //No need for method adding one extra product.
+    /* public void setProduct(Product pr){
         if(pr == null) throw new IllegalArgumentException("Product cannot be null");
         addProduct(pr);
-    }
+    }*/
+
     private boolean compareMoneyValues(double amount){
         boolean money = false;
         for (int i =0;i< validMoney.length;i++){
-            if (Double.compare((double) validMoney[i],amount) == 1) {
+            if (Double.compare((double) validMoney[i],amount) == 0) {
                 money = true;
                 break;
             }
@@ -76,8 +79,13 @@ public class VendingMachineImpl implements VendingMachine{
     }
 
     private boolean checkBalance(int amount){
-        if (amount < depositPool) {return false;}
-        return true;
+        boolean b = false;
+        if (amount > depositPool) {
+            b = false;
+        }else{
+            b = true;
+        }
+        return b;
     }
 
     private Product findProduct(int id){

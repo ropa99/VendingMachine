@@ -22,9 +22,9 @@ public abstract class Product {
     public String getProductName() {
         return productName;
     }
-    public String getDescription(){
+   /*public String getDescription(){
         return "HEJ";
-    }
+    }*/
 
     public void setPrice(double price) {
         this.price = price;

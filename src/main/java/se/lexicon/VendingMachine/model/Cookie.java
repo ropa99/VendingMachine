@@ -11,12 +11,6 @@ public class Cookie extends Product{
     }
 
     @Override
-    public String getDescription() {
-        //return "Id: " + getId() + "Cookie type: " + cookieType.getName() + " Price: " +cookieType.getPrice() + " Soft: " + cookieType.getIsSoft();
-        return "Artikelnumber: " + cookieType.getArtikelNumber() + " Cookie Name: " + cookieType.getName() + " Price: " +cookieType.getPrice() + " Soft: " + cookieType.getIsSoft();
-    }
-
-    @Override
     public String examine() {
         return "Artikelnumber: " + cookieType.getArtikelNumber() + " Cookie Name: " + cookieType.getName() + " Price: " +cookieType.getPrice() + " Soft: " + cookieType.getIsSoft();
     }

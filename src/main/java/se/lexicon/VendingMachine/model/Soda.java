@@ -27,12 +27,6 @@ public class Soda extends Product{
         return taste;
     }
 
-    @Override
-    public String getDescription() {
-
-        //return "Artikelnumber: " + this.getId() + " Soda Name: " + this.getProductName() +" Taste: " + this.getTaste() + " Sparkle: " + this.getIsSparkle();
-        return "Artikelnumber: " + sodaType.getArtikelNumber() + " Soda Name: " + sodaType.getName() +" Taste: " + this.getTaste() + " Sparkle: " + sodaType.isSparkle();
-    }
 
     @Override
     public String examine() {

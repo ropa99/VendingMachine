@@ -4,10 +4,11 @@ import se.lexicon.VendingMachine.model.CandyType;
 public class Candy extends Product{
     private CandyType candyType;
     private boolean isChocolate;
-    private int artikelnumber;
+
 
     public Candy( CandyType candyType) {
         super(candyType.getArtikelNumber(),candyType.getPrice(), candyType.getName());
+        this.candyType = candyType;
         this.isChocolate = candyType.getIsChocolate();
 
 
@@ -20,16 +21,6 @@ public class Candy extends Product{
 
     public boolean getIsChocolate(){
         return isChocolate;
-    }
-
-    public int getArtikelnumber(){
-        return artikelnumber;
-    }
-
-    @Override
-    public String getDescription() {
-
-        return "Artikelnumber: " + this.getId() + " Candy Name: " + this.getProductName() + " Price: " + this.getPrice() + " Chocolate: " + this.getIsChocolate();
     }
 
     @Override
