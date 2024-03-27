@@ -2,11 +2,16 @@ package se.lexicon.VendingMachine.model;
 import se.lexicon.VendingMachine.model.CandyType;
 
 public class Candy extends Product{
-    public CandyType candyType;
-    public boolean isChocolate;
+    private CandyType candyType;
+    private boolean isChocolate;
+    private int artikelnumber;
 
     public Candy( CandyType candyType) {
-        this.candyType = candyType;
+        super(candyType.getArtikelNumber(),candyType.getPrice(), candyType.getName());
+        this.isChocolate = candyType.getIsChocolate();
+
+
+
     }
 
     public CandyType getCandyType() {
@@ -17,9 +22,23 @@ public class Candy extends Product{
         return isChocolate;
     }
 
+    public int getArtikelnumber(){
+        return artikelnumber;
+    }
+
     @Override
     public String getDescription() {
-        //return "Id: " + super.getId() + " Candy Name: " + candyType.getName() + " Price: " + candyType.getPrice() + " Chocolate: " + candyType.getIsChocolate();
-        return "Candy Name: " + candyType.getName() + " Price: " + candyType.getPrice() + " Chocolate: " + candyType.getIsChocolate();
+
+        return "Artikelnumber: " + this.getId() + " Candy Name: " + this.getProductName() + " Price: " + this.getPrice() + " Chocolate: " + this.getIsChocolate();
+    }
+
+    @Override
+    public String examine() {
+        return "Artikelnumber: " + this.getId() + " Candy Name: " + this.getProductName() + " Price: " + this.getPrice() + " Chocolate: " + this.getIsChocolate();
+    }
+
+    @Override
+    public String use() {
+        return "Artikelnumber: " + this.getId() + " Candy Name: " + this.getProductName() + " Price: " + this.getPrice() + " Chocolate: " + this.getIsChocolate();
     }
 }

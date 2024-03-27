@@ -3,8 +3,8 @@ import se.lexicon.VendingMachine.model.Product;
 import java.util.Arrays;
 public class VendingMachineImpl implements VendingMachine{
 
-    Product[] products = new Product[0];
-    int depositPool;
+    private Product[] products;
+    private int depositPool;
 
     static int[] validMoney ={1,2,5,10,20,50,100,200,500,1000};
 
@@ -47,7 +47,7 @@ public class VendingMachineImpl implements VendingMachine{
 
         Product pr = findProduct(id);
 
-        return pr.getDescription();
+        return pr.getDescription(); //todo:remove
     }
 
     @Override
@@ -68,6 +68,7 @@ public class VendingMachineImpl implements VendingMachine{
         for (int i =0;i< validMoney.length;i++){
             if (Double.compare((double) validMoney[i],amount) == 1) {
                 money = true;
+                break;
             }
         }
         return money;
@@ -104,18 +105,14 @@ public class VendingMachineImpl implements VendingMachine{
          products = tmpProduct;
     }
     private void addProduct(Product pr){
+
         if(pr == null) throw new IllegalArgumentException("Product cannot be null");
 
-        boolean isAdded = false;
-        //check if product in array
-        if (findProduct(pr.getId() ) == null){
-            //Add product to array
-            Product[] tmpProduct = new Product[products.length +1];
-            tmpProduct = Arrays.copyOf(products,products.length +1);
-            tmpProduct[tmpProduct.length -1] = pr;
-            products = tmpProduct;
-            isAdded = true;
-        }
+        //Add product to array
+        Product[] tmpProduct = new Product[products.length +1];
+        tmpProduct = Arrays.copyOf(products,products.length +1);
+        tmpProduct[tmpProduct.length -1] = pr;
+        products = tmpProduct;
 
 
     }

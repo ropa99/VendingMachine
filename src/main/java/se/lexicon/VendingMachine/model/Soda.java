@@ -6,9 +6,13 @@ public class Soda extends Product{
     private String taste;
 
     public Soda(SodaType sodaType,String taste) {
-
+        super(sodaType.getArtikelNumber(), sodaType.getPrice(),sodaType.getName());
         this.sodaType = sodaType;
         this.taste = taste;
+        this.isSparkle = sodaType.isSparkle();
+
+
+
     }
 
     public SodaType getSodaType() {
@@ -25,6 +29,18 @@ public class Soda extends Product{
 
     @Override
     public String getDescription() {
-        return "Soda Name: " + getSodaType() +" Taste: " + getTaste() + " Sparkle: " + getIsSparkle();
+
+        //return "Artikelnumber: " + this.getId() + " Soda Name: " + this.getProductName() +" Taste: " + this.getTaste() + " Sparkle: " + this.getIsSparkle();
+        return "Artikelnumber: " + sodaType.getArtikelNumber() + " Soda Name: " + sodaType.getName() +" Taste: " + this.getTaste() + " Sparkle: " + sodaType.isSparkle();
+    }
+
+    @Override
+    public String examine() {
+        return "Artikelnumber: " + sodaType.getArtikelNumber() + " Soda Name: " + sodaType.getName() +" Taste: " + this.getTaste() + " Sparkle: " + sodaType.isSparkle();
+    }
+
+    @Override
+    public String use() {
+        return "Artikelnumber: " + sodaType.getArtikelNumber() + " Soda Name: " + sodaType.getName() +" Taste: " + this.getTaste() + " Sparkle: " + sodaType.isSparkle();
     }
 }
